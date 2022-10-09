@@ -3,7 +3,7 @@ set -eo pipefail
 
 #Set branch to master unless specified by the user
 declare -x LV_BRANCH="${LV_BRANCH:-"master"}"
-declare -xr LV_REMOTE="${LV_REMOTE:-lunarvim/lunarvim.git}"
+declare -xr LV_REMOTE="${LV_REMOTE:-KyleTryon/lunarvim.git}"
 declare -xr INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 
 declare -xr XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
@@ -415,7 +415,7 @@ function link_local_lvim() {
 }
 
 function setup_shim() {
-  make -C "$LUNARVIM_BASE_DIR" install-bin
+  bash "$LUNARVIM_BASE_DIR"/utils/installer/install_bin.sh
 }
 
 function remove_old_cache_files() {
